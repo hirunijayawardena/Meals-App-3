@@ -31,6 +31,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> with SingleTickerPr
       lowerBound: 0,
       upperBound: 1,
     );
+
+    _animationController.forward();
   }
 
   @override
@@ -79,7 +81,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> with SingleTickerPr
       ),
     builder: (contex, child) => Padding(
       padding: EdgeInsets.only(
-        top: _animationController.value * 100,
+        top: 100 - _animationController.value * 100,
       ), 
       child: child), // only the Padding rebuild and re-evaluated.
     ); 
