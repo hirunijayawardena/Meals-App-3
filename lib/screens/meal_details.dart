@@ -39,7 +39,12 @@ class MealDetailsScreen extends ConsumerWidget {
               transitionBuilder: (child, animation){
                 return RotationTransition(turns: animation, child: child);
               },
-              child: Icon(isFavorite ? Icons.star : Icons.star_border)),
+              // key used to differenciate between different widgets that are assigned to different data
+              child: Icon(
+                isFavorite ? Icons.star : Icons.star_border, 
+                key: ValueKey(isFavorite),
+              ),
+            ),
           )
         ]),
         body: SingleChildScrollView(
