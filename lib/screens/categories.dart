@@ -56,7 +56,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> with SingleTickerPr
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
+    return AnimatedBuilder(animation: 
+    _animationController,
+    child: GridView(
       padding: const EdgeInsets.all(24),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -74,6 +76,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> with SingleTickerPr
             },
           )
       ],
-    );
+      ),
+    builder: (contex, child) => Padding(
+      padding: EdgeInsets.only(
+        top: _animationController.value * 100,
+      ), 
+      child: child), // only the Padding rebuild and re-evaluated.
+    ); 
   }
 }
