@@ -36,6 +36,9 @@ class MealDetailsScreen extends ConsumerWidget {
             // animated switcher used to navigate one widget to another
             icon: AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
+              transitionBuilder: (child, animation){
+                return RotationTransition(turns: animation, child: child);
+              },
               child: Icon(isFavorite ? Icons.star : Icons.star_border)),
           )
         ]),
