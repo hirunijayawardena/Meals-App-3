@@ -33,7 +33,10 @@ class MealDetailsScreen extends ConsumerWidget {
                 ),
               );
             },
-            icon: Icon(isFavorite ? Icons.star : Icons.star_border),
+            // animated switcher used to navigate one widget to another
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: Icon(isFavorite ? Icons.star : Icons.star_border)),
           )
         ]),
         body: SingleChildScrollView(
