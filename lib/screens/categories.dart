@@ -79,11 +79,24 @@ class _CategoriesScreenState extends State<CategoriesScreen> with SingleTickerPr
           )
       ],
       ),
-    builder: (contex, child) => Padding(
-      padding: EdgeInsets.only(
-        top: 100 - _animationController.value * 100,
-      ), 
-      child: child), // only the Padding rebuild and re-evaluated.
+    builder: (contex, child) => 
+    //--------part 1----------
+    // Padding(
+    //   padding: EdgeInsets.only(
+    //     top: 100 - _animationController.value * 100,
+    //   ), 
+    //   child: child), // only the Padding rebuild and re-evaluated.
+    //-------------------------
+
+    SlideTransition(
+      position: _animationController.drive(
+        Tween(
+          begin: const Offset(0, 0.3) ,
+          end: const Offset(0, 0),
+        ),
+      ),
+      child: child,
+    ),
     ); 
   }
 }
